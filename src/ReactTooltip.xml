@@ -13,10 +13,7 @@
                     <caption>Tooltip trigger</caption>
                     <description>The icon/text/button to be used as tooltip trigger</description>
                 </property>
-                <property key="toolTipId" type="string" required="true">
-                    <caption>Identifier</caption>
-                    <description>Create a unique identifier</description>
-                </property>
+
                 <property key="toolTipText" type="textTemplate" required="true" multiline="true">
                     <caption>Tooltip text</caption>
                     <description>The text to be displayed as tooltip</description>
