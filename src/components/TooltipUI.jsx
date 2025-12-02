@@ -1,4 +1,5 @@
 import { Children, Component, createElement } from "react";
+import { createPortal } from "react-dom";
 import { Tooltip } from "react-tooltip";
 
 import "../ui/ReactTooltip.css";
@@ -22,17 +23,20 @@ export class TooltipUI extends Component {
                         : this.props.children}
                 </span>
 
-                <Tooltip
-                    style={this.props.style}
-                    className={this.props.className}
-                    id={this.props.toolTipId}
-                    place={this.props.toolTipPosition}
-                    events={this.props.triggerType === "click" ? ["click"] : ["hover"]}
-                    delayHide={this.props.delayHide}
-                    delayShow={this.props.delayShow}
-                    border={this.props.enableBorder ? "1px solid white" : undefined}
-                    arrowColor={this.props.arrowColor}
-                />
+                {createPortal(
+                    <Tooltip
+                        style={this.props.style}
+                        className={this.props.className}
+                        id={this.props.toolTipId}
+                        place={this.props.toolTipPosition}
+                        events={this.props.triggerType === "click" ? ["click"] : ["hover"]}
+                        delayHide={this.props.delayHide}
+                        delayShow={this.props.delayShow}
+                        border={this.props.enableBorder ? "1px solid white" : undefined}
+                        arrowColor={this.props.arrowColor}
+                    />,
+                    document.body
+                )}
             </div>
         );
     }
